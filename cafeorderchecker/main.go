@@ -22,7 +22,7 @@ func checkOrders(servedOrders []int, takeoutOrders []int, driveInOrders []int) {
 		v, ok := driveInOrdersIndex[servedOrders[i]].(int)
 		if ok {
 			if last_dinein_served_order_created_at > v {
-				fmt.Println("Order is not servered correctly1")
+				fmt.Println("Order is not servered correctly\n")
 				break
 			} else {
 				last_dinein_served_order_created_at = v
@@ -31,11 +31,13 @@ func checkOrders(servedOrders []int, takeoutOrders []int, driveInOrders []int) {
 			v, ok := takeoutOrdersIndex[servedOrders[i]].(int)
 			if ok {
 				if last_togo_served_order_created_at > v {
-					fmt.Printf("Order is not servered correctly %v", servedOrders[i])
+					fmt.Printf("Order is not servered correctly %v\n", servedOrders[i])
 					break
 				} else {
 					last_togo_served_order_created_at = v
 				}
+			} else {
+				fmt.Printf("This order is neither dine in nor take out\n")
 			}
 		}
 	}
